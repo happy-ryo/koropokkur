@@ -15,4 +15,5 @@
 
     #import <Three20/Three20.h>
     #import <extThree20JSON/extThree20JSON.h>
+    #import <BlocksKit/BlocksKit.h>
 #endif
