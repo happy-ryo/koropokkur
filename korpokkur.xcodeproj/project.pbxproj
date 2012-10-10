@@ -18,6 +18,7 @@
 		320F2C48872C2E2C4DF86205 /* libThree20UI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89845FC8162606090005ECF6 /* libThree20UI.a */; };
 		896D046B16262E65000DB7FA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 896D046A16262E65000DB7FA /* MessageUI.framework */; };
 		896D04C1162632BE000DB7FA /* libBlocksKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 896D045F16262C22000DB7FA /* libBlocksKit.a */; };
+		896D062D162637F2000DB7FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 896D062C162637F2000DB7FA /* AppDelegate.m */; };
 		89845F6D162601110005ECF6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89845F6C162601110005ECF6 /* UIKit.framework */; };
 		89845F6F162601110005ECF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89845F6E162601110005ECF6 /* Foundation.framework */; };
 		89845F71162601110005ECF6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89845F70162601110005ECF6 /* CoreGraphics.framework */; };
@@ -264,6 +265,7 @@
 		320F2C48872C2E2C4DF86200 /* Three20UI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20UI.xcodeproj; path = three20/src/Three20UI/Three20UI.xcodeproj; sourceTree = SOURCE_ROOT; };
 		896D045116262C21000DB7FA /* BlocksKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BlocksKit.xcodeproj; path = BlocksKit/BlocksKit.xcodeproj; sourceTree = "<group>"; };
 		896D046A16262E65000DB7FA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		896D062C162637F2000DB7FA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		89845F68162601110005ECF6 /* korpokkur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = korpokkur.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89845F6C162601110005ECF6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		89845F6E162601110005ECF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -425,6 +427,7 @@
 			isa = PBXGroup;
 			children = (
 				89845F7D162601110005ECF6 /* AppDelegate.h */,
+				896D062C162637F2000DB7FA /* AppDelegate.m */,
 				89845F86162601110005ECF6 /* korpokkur.xcdatamodeld */,
 				89845F75162601110005ECF6 /* Supporting Files */,
 				82CDD7B1309F261BA3D5DC9A /* View */,
@@ -739,6 +742,7 @@
 				89845F7B162601110005ECF6 /* main.m in Sources */,
 				89845F7F162601110005ECF6 /* AppDelegate.m in Sources */,
 				89845F88162601110005ECF6 /* korpokkur.xcdatamodeld in Sources */,
+				896D062D162637F2000DB7FA /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
