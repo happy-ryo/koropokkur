@@ -7,6 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "TagCollectionViewController.h"
+
+@interface AppDelegate ()
+
+
+@end
 
 @implementation AppDelegate
 
@@ -17,8 +23,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+
+    // root view
+    TagCollectionViewController *collectionViewController = [[TagCollectionViewController alloc] init];
+    self.window.rootViewController = collectionViewController;
+
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+
     return YES;
 }
 

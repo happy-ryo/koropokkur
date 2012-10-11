@@ -16,9 +16,16 @@
 		320CC833B8AF0ACFD35E6225 /* libThree20Style.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320CC833B8AF0ACFD35E6224 /* libThree20Style.a */; };
 		320D7DCCE32703ACAB9A45E5 /* libThree20.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320D7DCCE32703ACAB9A45E4 /* libThree20.a */; };
 		320F2C48872C2E2C4DF86205 /* libThree20UI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89845FC8162606090005ECF6 /* libThree20UI.a */; };
+		82CDD276EA0BB589F79F9F52 /* CustomTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CDD3FBEF8478A9FCCE46EE /* CustomTagCell.m */; };
+		82CDD2F3487F6CE16E30BBED /* QiitaTags.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CDDFF3381EA0F2802B2420 /* QiitaTags.m */; };
+		82CDD681AA9049F3FB2D8375 /* TagController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CDD8782334DE61A8EA8D8D /* TagController.m */; };
+		82CDD7D0C2F26016BEE429E3 /* QiitaUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CDD0C5F66E8214DD2935FA /* QiitaUser.m */; };
+		82CDDC9AA02CA312ED27785C /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CDD148E0232A7D5D4D574F /* Tag.m */; };
+		82CDDEF2E612F5194E875E1E /* TagCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CDD1AE9D7F314C8DF9E31F /* TagCollectionViewController.m */; };
+		82CDDF37BDE80C391FD331D8 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CDDA683804E07EF1556A5D /* CollectionViewController.m */; };
 		896D046B16262E65000DB7FA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 896D046A16262E65000DB7FA /* MessageUI.framework */; };
 		896D04C1162632BE000DB7FA /* libBlocksKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 896D045F16262C22000DB7FA /* libBlocksKit.a */; };
-		896D062D162637F2000DB7FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 896D062C162637F2000DB7FA /* AppDelegate.m */; };
+		896D070416263BF3000DB7FA /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 896D070316263BF3000DB7FA /* View.xib */; };
 		89845F6D162601110005ECF6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89845F6C162601110005ECF6 /* UIKit.framework */; };
 		89845F6F162601110005ECF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89845F6E162601110005ECF6 /* Foundation.framework */; };
 		89845F71162601110005ECF6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89845F70162601110005ECF6 /* CoreGraphics.framework */; };
@@ -263,9 +270,23 @@
 		320CC833B8AF0ACFD35E6220 /* Three20Style.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20Style.xcodeproj; path = three20/src/Three20Style/Three20Style.xcodeproj; sourceTree = SOURCE_ROOT; };
 		320D7DCCE32703ACAB9A45E0 /* Three20.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20.xcodeproj; path = three20/src/Three20/Three20.xcodeproj; sourceTree = SOURCE_ROOT; };
 		320F2C48872C2E2C4DF86200 /* Three20UI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20UI.xcodeproj; path = three20/src/Three20UI/Three20UI.xcodeproj; sourceTree = SOURCE_ROOT; };
+		82CDD0A7C3691FBBBD03ADC8 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
+		82CDD0C5F66E8214DD2935FA /* QiitaUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiitaUser.m; sourceTree = "<group>"; };
+		82CDD148E0232A7D5D4D574F /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		82CDD15F3AB12AA2EF97818B /* TagCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagCollectionViewController.h; sourceTree = "<group>"; };
+		82CDD1AE9D7F314C8DF9E31F /* TagCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagCollectionViewController.m; sourceTree = "<group>"; };
+		82CDD32B4FF906AD46C20344 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		82CDD3FBEF8478A9FCCE46EE /* CustomTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTagCell.m; sourceTree = "<group>"; };
+		82CDD60BF0027701D290B8A2 /* TagController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagController.h; sourceTree = "<group>"; };
+		82CDD6C12B1923943110DECC /* QiitaTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiitaTags.h; sourceTree = "<group>"; };
+		82CDD8782334DE61A8EA8D8D /* TagController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagController.m; sourceTree = "<group>"; };
+		82CDD903C412EC4D58D320F6 /* CustomTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTagCell.h; sourceTree = "<group>"; };
+		82CDDA683804E07EF1556A5D /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		82CDDD989E9044BF010F9F7D /* QiitaUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiitaUser.h; sourceTree = "<group>"; };
+		82CDDFF3381EA0F2802B2420 /* QiitaTags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiitaTags.m; sourceTree = "<group>"; };
 		896D045116262C21000DB7FA /* BlocksKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BlocksKit.xcodeproj; path = BlocksKit/BlocksKit.xcodeproj; sourceTree = "<group>"; };
 		896D046A16262E65000DB7FA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		896D062C162637F2000DB7FA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		896D070316263BF3000DB7FA /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		89845F68162601110005ECF6 /* korpokkur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = korpokkur.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89845F6C162601110005ECF6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		89845F6E162601110005ECF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -276,7 +297,7 @@
 		89845F7A162601110005ECF6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		89845F7C162601110005ECF6 /* korpokkur-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "korpokkur-Prefix.pch"; sourceTree = "<group>"; };
 		89845F7D162601110005ECF6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		89845F7E162601110005ECF6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = korpokkur/AppDelegate.m; sourceTree = "<group>"; };
+		89845F7E162601110005ECF6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		89845F80162601110005ECF6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		89845F82162601110005ECF6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		89845F84162601110005ECF6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -364,11 +385,48 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		82CDD241B26D497826AA9F17 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				82CDD8782334DE61A8EA8D8D /* TagController.m */,
+				82CDD60BF0027701D290B8A2 /* TagController.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		82CDD7B1309F261BA3D5DC9A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				896D070316263BF3000DB7FA /* View.xib */,
+				82CDD32B4FF906AD46C20344 /* CollectionViewController.h */,
+				82CDDA683804E07EF1556A5D /* CollectionViewController.m */,
+				82CDDF9B8A037F3673C1A484 /* Tag */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		82CDD94AF8057EAEC515954F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				82CDD0C5F66E8214DD2935FA /* QiitaUser.m */,
+				82CDDD989E9044BF010F9F7D /* QiitaUser.h */,
+				82CDD148E0232A7D5D4D574F /* Tag.m */,
+				82CDD0A7C3691FBBBD03ADC8 /* Tag.h */,
+				82CDDFF3381EA0F2802B2420 /* QiitaTags.m */,
+				82CDD6C12B1923943110DECC /* QiitaTags.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		82CDDF9B8A037F3673C1A484 /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				82CDD15F3AB12AA2EF97818B /* TagCollectionViewController.h */,
+				82CDD1AE9D7F314C8DF9E31F /* TagCollectionViewController.m */,
+				82CDD903C412EC4D58D320F6 /* CustomTagCell.h */,
+				82CDD3FBEF8478A9FCCE46EE /* CustomTagCell.m */,
+			);
+			path = Tag;
 			sourceTree = "<group>";
 		};
 		896D045216262C21000DB7FA /* Products */ = {
@@ -396,7 +454,6 @@
 			isa = PBXGroup;
 			children = (
 				89845F68162601110005ECF6 /* korpokkur.app */,
-				89845F7E162601110005ECF6 /* AppDelegate.m */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -427,10 +484,12 @@
 			isa = PBXGroup;
 			children = (
 				89845F7D162601110005ECF6 /* AppDelegate.h */,
-				896D062C162637F2000DB7FA /* AppDelegate.m */,
 				89845F86162601110005ECF6 /* korpokkur.xcdatamodeld */,
 				89845F75162601110005ECF6 /* Supporting Files */,
 				82CDD7B1309F261BA3D5DC9A /* View */,
+				82CDD94AF8057EAEC515954F /* Model */,
+				82CDD241B26D497826AA9F17 /* Controller */,
+				89845F7E162601110005ECF6 /* AppDelegate.m */,
 			);
 			path = korpokkur;
 			sourceTree = "<group>";
@@ -729,6 +788,7 @@
 				89845F81162601110005ECF6 /* Default.png in Resources */,
 				89845F83162601110005ECF6 /* Default@2x.png in Resources */,
 				89845F85162601110005ECF6 /* Default-568h@2x.png in Resources */,
+				896D070416263BF3000DB7FA /* View.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -742,7 +802,13 @@
 				89845F7B162601110005ECF6 /* main.m in Sources */,
 				89845F7F162601110005ECF6 /* AppDelegate.m in Sources */,
 				89845F88162601110005ECF6 /* korpokkur.xcdatamodeld in Sources */,
-				896D062D162637F2000DB7FA /* AppDelegate.m in Sources */,
+				82CDDEF2E612F5194E875E1E /* TagCollectionViewController.m in Sources */,
+				82CDD7D0C2F26016BEE429E3 /* QiitaUser.m in Sources */,
+				82CDDC9AA02CA312ED27785C /* Tag.m in Sources */,
+				82CDD2F3487F6CE16E30BBED /* QiitaTags.m in Sources */,
+				82CDD681AA9049F3FB2D8375 /* TagController.m in Sources */,
+				82CDDF37BDE80C391FD331D8 /* CollectionViewController.m in Sources */,
+				82CDD276EA0BB589F79F9F52 /* CustomTagCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -881,11 +947,9 @@
 					three20/Build/Products/three20,
 				);
 				INFOPLIST_FILE = "korpokkur/korpokkur-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/three20/src/extThree20JSON\"/** \"${PROJECT_DIR}/BlocksKit\"/**";
 				WRAPPER_EXTENSION = app;
@@ -904,10 +968,8 @@
 					three20/Build/Products/three20,
 				);
 				INFOPLIST_FILE = "korpokkur/korpokkur-Info.plist";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/three20/src/extThree20JSON\"/** \"${PROJECT_DIR}/BlocksKit\"/**";
 				WRAPPER_EXTENSION = app;
