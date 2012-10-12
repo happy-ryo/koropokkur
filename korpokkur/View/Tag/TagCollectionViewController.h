@@ -9,4 +9,6 @@
 
 
 @interface TagCollectionViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
+@property(nonatomic, strong) UICollectionView *collectionView;
+
 @end

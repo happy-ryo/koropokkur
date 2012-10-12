@@ -14,7 +14,10 @@
 @implementation TagCollectionViewController {
     UICollectionView *_collectionView;
     TagController *_tagController;
+    __weak TagCollectionViewController *_weakSelf;
 }
+@synthesize collectionView = _collectionView;
+
 
 - (void)loadView {
     [super loadView];
@@ -23,33 +26,40 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setUp];
+    _weakSelf = self;
     _tagController = [[TagController alloc] initWithTagController:^(NSArray *array) {
-        __block NSInteger integer = _tagController.tags.count - array.count;
-        __block NSEnumerator *enumerator = array.objectEnumerator;
-        __block NSMutableArray *indexPaths = [NSMutableArray array];
-        __block Tag *tag = enumerator.nextObject;
+        NSInteger integer = _tagController.tags.count - array.count;
+        NSEnumerator *enumerator = array.objectEnumerator;
+        NSMutableArray *indexPaths = [NSMutableArray array];
+        Tag *tag = enumerator.nextObject;
         while (tag) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:integer inSection:0];
             [indexPaths addObject:indexPath];
-            integer++;
+            ++integer;
             tag = enumerator.nextObject;
         }
-        [_collectionView insertItemsAtIndexPaths:indexPaths];
+        [_weakSelf.collectionView insertItemsAtIndexPaths:indexPaths];
     }];
+
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [_tagController loadTags];
 }
 
 
 - (void)setUp {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    [flowLayout setItemSize:CGSizeMake(150, 125)];
-    [flowLayout setMinimumLineSpacing:5.0f];
-    [flowLayout setMinimumInteritemSpacing:5.0f];
+    [flowLayout setItemSize:CGSizeMake(100, 125)];
+    [flowLayout setMinimumLineSpacing:10.0f];
+    [flowLayout setMinimumInteritemSpacing:10.0f];
     //[flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
 
     _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
+    _collectionView.backgroundColor = [UIColor whiteColor];
     [_collectionView registerClass:[CustomTagCell class] forCellWithReuseIdentifier:@"CustomTagCell"];
     _collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
@@ -99,11 +109,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CustomTagCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CustomTagCell" forIndexPath:indexPath];
-//    CustomTagCell *cell =
-//            (CustomTagCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"CustomTagCell" forIndexPath:indexPath];
-//            [collectionView dequeueReusableSupplementaryViewOfKind:@"CustomTagCell" withReuseIdentifier:@"CustomTagCell" forIndexPath:indexPath];
-
-    Tag *tag = [_tagController.tags objectAtIndex:indexPath.row];
+    Tag *tag = [_tagController.tags objectAtIndex:(NSUInteger) indexPath.row];
     [cell loadObject:tag];
 
     return cell;
