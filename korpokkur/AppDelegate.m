@@ -31,6 +31,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 
+    // スプラッシュの表示時間を意図的に確保する
+    [NSThread sleepForTimeInterval:2.5f];
     return YES;
 }
 

@@ -69,7 +69,13 @@
 - (void)requestDidFinishLoad:(TTURLRequest *)request {
     [super requestDidFinishLoad:request];
     TTURLJSONResponse *response = (TTURLJSONResponse *) request.response;
-    id obj = response.rootObject;
+    id obj =response.rootObject;
+    if (obj == nil || [obj count] == 0) {
+        _complete = YES;
+        return;
+    } else if (_complete) {
+        return;
+    }
     NSMutableArray *resultArray = [NSMutableArray array];
 
     if ([obj isKindOfClass:[NSArray class]]) {
