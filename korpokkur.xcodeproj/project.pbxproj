@@ -27,6 +27,11 @@
 		896D046B16262E65000DB7FA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 896D046A16262E65000DB7FA /* MessageUI.framework */; };
 		896D04C1162632BE000DB7FA /* libBlocksKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 896D045F16262C22000DB7FA /* libBlocksKit.a */; };
 		896D070416263BF3000DB7FA /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 896D070316263BF3000DB7FA /* View.xib */; };
+		896D0D4F16283B6F000DB7FA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 896D0D4E16283B6F000DB7FA /* Default-568h@2x.png */; };
+		896D0D5116283CAF000DB7FA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 896D0D5016283CAF000DB7FA /* Default@2x.png */; };
+		896D0D5316283CB7000DB7FA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 896D0D5216283CB7000DB7FA /* Default.png */; };
+		896D0D5516283CF7000DB7FA /* koropo_icon_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 896D0D5416283CF7000DB7FA /* koropo_icon_57x57.png */; };
+		896D0D5716283CFB000DB7FA /* koropo_icon_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 896D0D5616283CFB000DB7FA /* koropo_icon_114x114.png */; };
 		89845F6D162601110005ECF6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89845F6C162601110005ECF6 /* UIKit.framework */; };
 		89845F6F162601110005ECF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89845F6E162601110005ECF6 /* Foundation.framework */; };
 		89845F71162601110005ECF6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89845F70162601110005ECF6 /* CoreGraphics.framework */; };
@@ -34,9 +39,6 @@
 		89845F79162601110005ECF6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89845F77162601110005ECF6 /* InfoPlist.strings */; };
 		89845F7B162601110005ECF6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89845F7A162601110005ECF6 /* main.m */; };
 		89845F7F162601110005ECF6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89845F7E162601110005ECF6 /* AppDelegate.m */; };
-		89845F81162601110005ECF6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 89845F80162601110005ECF6 /* Default.png */; };
-		89845F83162601110005ECF6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89845F82162601110005ECF6 /* Default@2x.png */; };
-		89845F85162601110005ECF6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89845F84162601110005ECF6 /* Default-568h@2x.png */; };
 		89845F88162601110005ECF6 /* korpokkur.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89845F86162601110005ECF6 /* korpokkur.xcdatamodeld */; };
 		89846085162609D10005ECF6 /* libextThree20JSON+SBJSON.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89846080162609C70005ECF6 /* libextThree20JSON+SBJSON.a */; };
 /* End PBXBuildFile section */
@@ -290,6 +292,11 @@
 		896D045116262C21000DB7FA /* BlocksKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BlocksKit.xcodeproj; path = BlocksKit/BlocksKit.xcodeproj; sourceTree = "<group>"; };
 		896D046A16262E65000DB7FA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		896D070316263BF3000DB7FA /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		896D0D4E16283B6F000DB7FA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		896D0D5016283CAF000DB7FA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		896D0D5216283CB7000DB7FA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		896D0D5416283CF7000DB7FA /* koropo_icon_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = koropo_icon_57x57.png; sourceTree = "<group>"; };
+		896D0D5616283CFB000DB7FA /* koropo_icon_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = koropo_icon_114x114.png; sourceTree = "<group>"; };
 		89845F68162601110005ECF6 /* korpokkur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = korpokkur.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89845F6C162601110005ECF6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		89845F6E162601110005ECF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -301,9 +308,6 @@
 		89845F7C162601110005ECF6 /* korpokkur-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "korpokkur-Prefix.pch"; sourceTree = "<group>"; };
 		89845F7D162601110005ECF6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		89845F7E162601110005ECF6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		89845F80162601110005ECF6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		89845F82162601110005ECF6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		89845F84162601110005ECF6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		89845F87162601110005ECF6 /* korpokkur.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = korpokkur.xcdatamodel; sourceTree = "<group>"; };
 		89846074162609C60005ECF6 /* extThree20JSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = extThree20JSON.xcodeproj; path = three20/src/extThree20JSON/extThree20JSON.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -449,6 +453,11 @@
 		89845F5D162601110005ECF6 = {
 			isa = PBXGroup;
 			children = (
+				896D0D5616283CFB000DB7FA /* koropo_icon_114x114.png */,
+				896D0D5416283CF7000DB7FA /* koropo_icon_57x57.png */,
+				896D0D5216283CB7000DB7FA /* Default.png */,
+				896D0D5016283CAF000DB7FA /* Default@2x.png */,
+				896D0D4E16283B6F000DB7FA /* Default-568h@2x.png */,
 				89845F74162601110005ECF6 /* korpokkur */,
 				89845F6B162601110005ECF6 /* Frameworks */,
 				89845F69162601110005ECF6 /* Products */,
@@ -507,9 +516,6 @@
 				89845F77162601110005ECF6 /* InfoPlist.strings */,
 				89845F7A162601110005ECF6 /* main.m */,
 				89845F7C162601110005ECF6 /* korpokkur-Prefix.pch */,
-				89845F80162601110005ECF6 /* Default.png */,
-				89845F82162601110005ECF6 /* Default@2x.png */,
-				89845F84162601110005ECF6 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -790,10 +796,12 @@
 			files = (
 				320B6C86F11D9990244A9731 /* Three20.bundle in Resources */,
 				89845F79162601110005ECF6 /* InfoPlist.strings in Resources */,
-				89845F81162601110005ECF6 /* Default.png in Resources */,
-				89845F83162601110005ECF6 /* Default@2x.png in Resources */,
-				89845F85162601110005ECF6 /* Default-568h@2x.png in Resources */,
 				896D070416263BF3000DB7FA /* View.xib in Resources */,
+				896D0D4F16283B6F000DB7FA /* Default-568h@2x.png in Resources */,
+				896D0D5116283CAF000DB7FA /* Default@2x.png in Resources */,
+				896D0D5316283CB7000DB7FA /* Default.png in Resources */,
+				896D0D5516283CF7000DB7FA /* koropo_icon_57x57.png in Resources */,
+				896D0D5716283CFB000DB7FA /* koropo_icon_114x114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
