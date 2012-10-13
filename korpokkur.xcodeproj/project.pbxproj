@@ -16,12 +16,16 @@
 		320CC833B8AF0ACFD35E6225 /* libThree20Style.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320CC833B8AF0ACFD35E6224 /* libThree20Style.a */; };
 		320D7DCCE32703ACAB9A45E5 /* libThree20.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320D7DCCE32703ACAB9A45E4 /* libThree20.a */; };
 		320F2C48872C2E2C4DF86205 /* libThree20UI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89845FC8162606090005ECF6 /* libThree20UI.a */; };
+		82CDD00DCB0FF4EF79B7B448 /* TagItemsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CDD05F5A06F579B85F4788 /* TagItemsController.m */; };
 		82CDD05141C718BDC210A40B /* UILine.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CDD178A32F0A907428C925 /* UILine.m */; };
 		82CDD276EA0BB589F79F9F52 /* CustomTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CDD3FBEF8478A9FCCE46EE /* CustomTagCell.m */; };
 		82CDD2F3487F6CE16E30BBED /* QiitaTags.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CDDFF3381EA0F2802B2420 /* QiitaTags.m */; };
+		82CDD4B1B8DEC99D5718A7F0 /* ItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CDD5E183F0AD6A5633DF4A /* ItemListViewController.m */; };
+		82CDD5A3E488F1CDC82F64A2 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CDDCCB041441235A1903BA /* Item.m */; };
 		82CDD681AA9049F3FB2D8375 /* TagController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CDD8782334DE61A8EA8D8D /* TagController.m */; };
 		82CDD7D0C2F26016BEE429E3 /* QiitaUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CDD0C5F66E8214DD2935FA /* QiitaUser.m */; };
 		82CDDC9AA02CA312ED27785C /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CDD148E0232A7D5D4D574F /* Tag.m */; };
+		82CDDED3F34EE981AD09F008 /* QiitaTagItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CDD06FC80612983FAA31E9 /* QiitaTagItems.m */; };
 		82CDDEF2E612F5194E875E1E /* TagCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CDD1AE9D7F314C8DF9E31F /* TagCollectionViewController.m */; };
 		82CDDF37BDE80C391FD331D8 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CDDA683804E07EF1556A5D /* CollectionViewController.m */; };
 		896D046B16262E65000DB7FA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 896D046A16262E65000DB7FA /* MessageUI.framework */; };
@@ -273,6 +277,9 @@
 		320CC833B8AF0ACFD35E6220 /* Three20Style.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20Style.xcodeproj; path = three20/src/Three20Style/Three20Style.xcodeproj; sourceTree = SOURCE_ROOT; };
 		320D7DCCE32703ACAB9A45E0 /* Three20.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20.xcodeproj; path = three20/src/Three20/Three20.xcodeproj; sourceTree = SOURCE_ROOT; };
 		320F2C48872C2E2C4DF86200 /* Three20UI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20UI.xcodeproj; path = three20/src/Three20UI/Three20UI.xcodeproj; sourceTree = SOURCE_ROOT; };
+		82CDD05F5A06F579B85F4788 /* TagItemsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagItemsController.m; sourceTree = "<group>"; };
+		82CDD06FC80612983FAA31E9 /* QiitaTagItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiitaTagItems.m; sourceTree = "<group>"; };
+		82CDD07B73406A5B794CB453 /* ItemListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemListViewController.h; sourceTree = "<group>"; };
 		82CDD0A7C3691FBBBD03ADC8 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
 		82CDD0C5F66E8214DD2935FA /* QiitaUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiitaUser.m; sourceTree = "<group>"; };
 		82CDD148E0232A7D5D4D574F /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
@@ -280,12 +287,17 @@
 		82CDD178A32F0A907428C925 /* UILine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILine.m; sourceTree = "<group>"; };
 		82CDD1AE9D7F314C8DF9E31F /* TagCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagCollectionViewController.m; sourceTree = "<group>"; };
 		82CDD32B4FF906AD46C20344 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		82CDD396411737DDA6265F66 /* TagItemsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagItemsController.h; sourceTree = "<group>"; };
 		82CDD3FBEF8478A9FCCE46EE /* CustomTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTagCell.m; sourceTree = "<group>"; };
+		82CDD5E183F0AD6A5633DF4A /* ItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemListViewController.m; sourceTree = "<group>"; };
 		82CDD60BF0027701D290B8A2 /* TagController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagController.h; sourceTree = "<group>"; };
 		82CDD6C12B1923943110DECC /* QiitaTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiitaTags.h; sourceTree = "<group>"; };
 		82CDD8782334DE61A8EA8D8D /* TagController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagController.m; sourceTree = "<group>"; };
 		82CDD903C412EC4D58D320F6 /* CustomTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTagCell.h; sourceTree = "<group>"; };
 		82CDDA683804E07EF1556A5D /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		82CDDA74FEB21A156FC6A313 /* QiitaTagItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiitaTagItems.h; sourceTree = "<group>"; };
+		82CDDAB844CD7395132E805A /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		82CDDCCB041441235A1903BA /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		82CDDD69C69A61F0D52C3EEF /* UILine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILine.h; sourceTree = "<group>"; };
 		82CDDD989E9044BF010F9F7D /* QiitaUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiitaUser.h; sourceTree = "<group>"; };
 		82CDDFF3381EA0F2802B2420 /* QiitaTags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiitaTags.m; sourceTree = "<group>"; };
@@ -397,6 +409,8 @@
 			children = (
 				82CDD8782334DE61A8EA8D8D /* TagController.m */,
 				82CDD60BF0027701D290B8A2 /* TagController.h */,
+				82CDD05F5A06F579B85F4788 /* TagItemsController.m */,
+				82CDD396411737DDA6265F66 /* TagItemsController.h */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -410,6 +424,7 @@
 				82CDDF9B8A037F3673C1A484 /* Tag */,
 				82CDD178A32F0A907428C925 /* UILine.m */,
 				82CDDD69C69A61F0D52C3EEF /* UILine.h */,
+				82CDDC4EAE2F32C2F42F9E43 /* Description */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -423,8 +438,21 @@
 				82CDD0A7C3691FBBBD03ADC8 /* Tag.h */,
 				82CDDFF3381EA0F2802B2420 /* QiitaTags.m */,
 				82CDD6C12B1923943110DECC /* QiitaTags.h */,
+				82CDDAB844CD7395132E805A /* Item.h */,
+				82CDDCCB041441235A1903BA /* Item.m */,
+				82CDD06FC80612983FAA31E9 /* QiitaTagItems.m */,
+				82CDDA74FEB21A156FC6A313 /* QiitaTagItems.h */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		82CDDC4EAE2F32C2F42F9E43 /* Description */ = {
+			isa = PBXGroup;
+			children = (
+				82CDD07B73406A5B794CB453 /* ItemListViewController.h */,
+				82CDD5E183F0AD6A5633DF4A /* ItemListViewController.m */,
+			);
+			path = Description;
 			sourceTree = "<group>";
 		};
 		82CDDF9B8A037F3673C1A484 /* Tag */ = {
@@ -823,6 +851,10 @@
 				82CDDF37BDE80C391FD331D8 /* CollectionViewController.m in Sources */,
 				82CDD276EA0BB589F79F9F52 /* CustomTagCell.m in Sources */,
 				82CDD05141C718BDC210A40B /* UILine.m in Sources */,
+				82CDD5A3E488F1CDC82F64A2 /* Item.m in Sources */,
+				82CDDED3F34EE981AD09F008 /* QiitaTagItems.m in Sources */,
+				82CDD00DCB0FF4EF79B7B448 /* TagItemsController.m in Sources */,
+				82CDD4B1B8DEC99D5718A7F0 /* ItemListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

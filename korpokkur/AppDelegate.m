@@ -14,7 +14,10 @@
 
 @end
 
-@implementation AppDelegate
+@implementation AppDelegate {
+    UITabBarController *_tabBarController;
+    UINavigationController *_publicNavigation;
+}
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -26,13 +29,18 @@
 
     // root view
     TagCollectionViewController *collectionViewController = [[TagCollectionViewController alloc] init];
-    self.window.rootViewController = collectionViewController;
+    _tabBarController = [[UITabBarController alloc] init];
+    _publicNavigation = [[UINavigationController alloc] initWithRootViewController:collectionViewController];
+    _publicNavigation.navigationBar.tintColor = RGBCOLOR(89, 192, 40);
+    [_tabBarController setViewControllers:[NSArray arrayWithObjects:_publicNavigation, nil] animated:YES];
+
+    self.window.rootViewController = _tabBarController;
 
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 
     // スプラッシュの表示時間を意図的に確保する
-    [NSThread sleepForTimeInterval:2.5f];
+//    [NSThread sleepForTimeInterval:2.5f];
     return YES;
 }
 

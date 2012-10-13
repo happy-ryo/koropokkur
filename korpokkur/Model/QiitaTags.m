@@ -55,7 +55,7 @@
     TTURLRequest *request = [TTURLRequest requestWithURL:_qiitaTagsAPI delegate:self];
     request.httpMethod = @"GET";
     request.cachePolicy = cachePolicy;
-    request.cacheExpirationAge = 60;
+    request.cacheExpirationAge = 60 * 5;
 
     TTURLJSONResponse *response = [[TTURLJSONResponse alloc] init];
     request.response = response;

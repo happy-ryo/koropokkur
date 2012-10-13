@@ -9,12 +9,16 @@
 #import "TagController.h"
 #import "Tag.h"
 #import "CustomTagCell.h"
+#import "QiitaTagItems.h"
+#import "ItemListViewController.h"
 
 
 @implementation TagCollectionViewController {
     UICollectionView *_collectionView;
     TagController *_tagController;
     __weak TagCollectionViewController *_weakSelf;
+    QiitaTagItems *_items;
+    ItemListViewController *_itemListViewController;
 }
 @synthesize collectionView = _collectionView;
 
@@ -25,6 +29,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationItem.title = @"Koropo";
     [self setUp];
     _weakSelf = self;
     _tagController = [[TagController alloc] initWithTagController:^(NSArray *array) {
@@ -38,9 +43,13 @@
             ++integer;
             tag = enumerator.nextObject;
         }
-        [_weakSelf.collectionView insertItemsAtIndexPaths:indexPaths];
+        [self insert:indexPaths];
     }];
 
+}
+
+- (void)insert:(NSArray *)array{
+    [_weakSelf.collectionView insertItemsAtIndexPaths:array];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -76,7 +85,7 @@
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%i:%@", indexPath.row, NSStringFromSelector(_cmd));
-    return NO;
+    return YES;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -99,7 +108,18 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%i:%@", indexPath.row, NSStringFromSelector(_cmd));
+    Tag *tag = [_tagController.tags objectAtIndex:(NSUInteger) indexPath.row];
+    NSLog(@"%@",tag.tagName);
+    _itemListViewController = [[ItemListViewController alloc] initWithTag:tag];
+
+    [self.navigationController pushViewController:_itemListViewController animated:YES];
+//    _items = [[QiitaTagItems alloc] initWithTag: itemsResult:^(BOOL b, NSArray *array) {
+//        NSLog(@"test");
+
+//    }];
+//    [_items load:TTURLRequestCachePolicyNone more:NO];
 }
+
 
 
 #pragma mark dataSource delegate
