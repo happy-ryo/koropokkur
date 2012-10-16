@@ -18,10 +18,14 @@
 
     BOOL _complete;
 
+    BOOL _loadFlg;
+
     void (^tagsResult)(BOOL status, NSArray *resultArray);
 
 }
 @synthesize tags = _tags;
+@synthesize complete = _complete;
+
 
 - (id)initWithTagsResult:(void (^)(BOOL, NSArray *))aTagsResult {
     self = [super init];
@@ -41,6 +45,8 @@
 
 
 - (void)load:(TTURLRequestCachePolicy)cachePolicy more:(BOOL)more {
+    if(_loadFlg)return;
+    _loadFlg = YES;
     if (more) {
         ++_page;
     } else {
@@ -55,7 +61,7 @@
     TTURLRequest *request = [TTURLRequest requestWithURL:_qiitaTagsAPI delegate:self];
     request.httpMethod = @"GET";
     request.cachePolicy = cachePolicy;
-    request.cacheExpirationAge = 60;
+    request.cacheExpirationAge = 60 * 50;
 
     TTURLJSONResponse *response = [[TTURLJSONResponse alloc] init];
     request.response = response;
@@ -66,47 +72,71 @@
 
 #pragma mark TTURLRequestDelegate
 
+
+
 - (void)requestDidFinishLoad:(TTURLRequest *)request {
     [super requestDidFinishLoad:request];
+    [NSThread detachNewThreadSelector:@selector(request:) toTarget:self withObject:request];
+
+}
+
+- (void)request:(TTURLRequest *)request {
     TTURLJSONResponse *response = (TTURLJSONResponse *) request.response;
-    id obj =response.rootObject;
-    if (obj == nil || [obj count] == 0) {
-        _complete = YES;
-        return;
-    } else if (_complete) {
-        return;
-    }
-    NSMutableArray *resultArray = [NSMutableArray array];
-
-    if ([obj isKindOfClass:[NSArray class]]) {
-        NSArray *responseArray = obj;
-        NSDictionary *responseDic;
-        NSEnumerator *resultEnumerator = responseArray.objectEnumerator;
-        AppDelegate *appDelegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
-
-        responseDic = [resultEnumerator nextObject];
-        while (responseDic) {
-            Tag *tag = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([Tag class])
-                                                     inManagedObjectContext:appDelegate.managedObjectContext];
-            tag.tagName = [responseDic valueForKey:@"name"];
-            tag.iconUrl = [responseDic valueForKey:@"icon_url"];
-            NSNumber *itemCount = [responseDic valueForKey:@"item_count"];
-            tag.itemCount = itemCount.description;
-            tag.urlName = [responseDic valueForKey:@"url_name"];
-            NSNumber *followerCount = [responseDic valueForKey:@"follower_count"];
-            tag.followerCount = followerCount.description;
-            NSError *error;
-            if (![appDelegate.managedObjectContext save:&error]) {
-                NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-                abort();
-            }
-            [resultArray addObject:tag];
-            responseDic = [resultEnumerator nextObject];
+    @autoreleasepool {
+        id obj = response.rootObject;
+        if (obj == nil || [obj count] == 0) {
+            _complete = YES;
+            tagsResult(YES, nil);
+            return;
+        } else if (_complete) {
+            return;
         }
+        NSMutableArray *resultArray = [NSMutableArray array];
+
+        if ([obj isKindOfClass:[NSArray class]]) {
+            NSArray *responseArray = obj;
+            NSDictionary *responseDic;
+            NSEnumerator *resultEnumerator = responseArray.objectEnumerator;
+            AppDelegate *appDelegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
+
+            responseDic = [resultEnumerator nextObject];
+            while (responseDic) {
+                Tag *tag = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([Tag class])
+                                                         inManagedObjectContext:appDelegate.managedObjectContext];
+                NSFetchRequest *request = [[NSFetchRequest alloc] init];
+                NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass([Tag class])
+                                                          inManagedObjectContext:appDelegate.managedObjectContext];
+                [request setEntity:entity];
+                NSString *predicateCommand = [NSString stringWithFormat:@"urlName = '"];
+                predicateCommand = [predicateCommand stringByAppendingString:[responseDic valueForKey:@"url_name"]];
+                predicateCommand = [predicateCommand stringByAppendingString:@"'"];
+
+                NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateCommand];
+                [request setPredicate:predicate];
+
+                NSArray *fetchedObjects = [[appDelegate managedObjectContext] executeFetchRequest:request error:nil];
+                if (fetchedObjects.count) tag = [fetchedObjects objectAtIndex:0];
+
+                tag.tagName = [responseDic valueForKey:@"name"];
+                tag.iconUrl = [responseDic valueForKey:@"icon_url"];
+                tag.itemCount = [responseDic valueForKey:@"item_count"];
+                tag.urlName = [responseDic valueForKey:@"url_name"];
+                tag.followerCount = [responseDic valueForKey:@"follower_count"];
+                NSError *error;
+                if (![appDelegate.managedObjectContext save:&error]) {
+                    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+                    abort();
+                }
+                [resultArray addObject:tag];
+                responseDic = [resultEnumerator nextObject];
+            }
+        }
+
+        [_tags addObjectsFromArray:resultArray];
+        tagsResult(YES, resultArray);
+        _loadFlg = NO;
     }
 
-    [_tags addObjectsFromArray:resultArray];
-    tagsResult(YES, resultArray);
 }
 
 - (void)request:(TTURLRequest *)request didFailLoadWithError:(NSError *)error {
@@ -117,5 +147,8 @@
     [super requestDidCancelLoad:request];
 }
 
+- (void)dealloc {
+
+}
 
 @end

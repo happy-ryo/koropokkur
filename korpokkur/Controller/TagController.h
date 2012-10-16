@@ -22,5 +22,7 @@
 
 - (NSArray *)tags;
 
+- (BOOL)complete;
+
 
 @end

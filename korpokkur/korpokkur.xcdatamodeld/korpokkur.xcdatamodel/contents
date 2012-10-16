@@ -1,13 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1810" systemVersion="12C54" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Item" representedClassName="Item" syncable="YES">
+        <attribute name="commentCount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAtAsSeconds" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="createdAtInWords" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gistUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemBody" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemPrivates" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="itemsId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stockCount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAtInWords" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="stockUsers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StockUser" syncable="YES"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="item" inverseEntity="Tag" syncable="YES"/>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="item" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="StockUser" representedClassName="StockUser" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Tag" representedClassName="Tag" syncable="YES">
-        <attribute name="followerCount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="followerCount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="iconUrl" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="itemCount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemCount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="tagName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="urlName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="item" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="tags" inverseEntity="Item" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profile_image_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url_name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="item" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="user" inverseEntity="Item" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Tag" positionX="-2565" positionY="-891" width="191" height="118"/>
+        <element name="Tag" positionX="-39339" positionY="-6505" width="270" height="133"/>
+        <element name="Item" positionX="-39303" positionY="-6291" width="128" height="298"/>
+        <element name="StockUser" positionX="-39591" positionY="-6156" width="128" height="58"/>
+        <element name="User" positionX="-39609" positionY="-6471" width="128" height="103"/>
     </elements>
 </model>
