@@ -6,8 +6,8 @@
 
 
 #import "TagItemsController.h"
-#import "QiitaTagItems.h"
 #import "Tag.h"
+#import "QiitaTagItems.h"
 
 
 @implementation TagItemsController {
@@ -32,7 +32,6 @@
         tagItemsController = aTagItemsController;
         _tag = tag;
         _tagItems = [[QiitaTagItems alloc] initWithTag:_tag itemsResult:^(BOOL b, NSArray *array) {
-            NSLog(@"result");
             [self didFinishLoad:b results:array];
         }];
     }
@@ -41,11 +40,11 @@
 }
 
 - (void)loadItems {
-    [_tagItems load:TTURLRequestCachePolicyDefault more:NO];
+    [_tagItems load:TTURLRequestCachePolicyDisk more:NO];
 }
 
-- (void)moreLoadTags {
-    [_tagItems load:TTURLRequestCachePolicyDefault more:YES];
+- (void)moreLoadItems {
+    [_tagItems load:TTURLRequestCachePolicyDisk more:YES];
 }
 
 - (void)didFinishLoad:(BOOL)status results:(NSArray *)array {
@@ -60,5 +59,8 @@
     return _tagItems.items;
 }
 
+- (BOOL)complete{
+    return _tagItems.completeFlg;
+}
 
 @end

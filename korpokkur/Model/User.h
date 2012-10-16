@@ -1,5 +1,5 @@
 //
-//  Tag.h
+//  User.h
 //  korpokkur
 //
 //  Created by happy_ryo on 2012/10/15.
@@ -11,17 +11,15 @@
 
 @class Item;
 
-@interface Tag : NSManagedObject
+@interface User : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * followerCount;
-@property (nonatomic, retain) NSString * iconUrl;
-@property (nonatomic, retain) NSNumber * itemCount;
-@property (nonatomic, retain) NSString * tagName;
-@property (nonatomic, retain) NSString * urlName;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * url_name;
+@property (nonatomic, retain) NSString * profile_image_url;
 @property (nonatomic, retain) NSSet *item;
 @end
 
-@interface Tag (CoreDataGeneratedAccessors)
+@interface User (CoreDataGeneratedAccessors)
 
 - (void)addItemObject:(Item *)value;
 - (void)removeItemObject:(Item *)value;

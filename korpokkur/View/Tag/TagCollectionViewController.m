@@ -25,14 +25,11 @@
 
 - (void)loadView {
     [super loadView];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
     self.navigationItem.title = @"Koropo";
     [self setUp];
     _weakSelf = self;
     _tagController = [[TagController alloc] initWithTagController:^(NSArray *array) {
+        self.navigationItem.title = @"Koropo";
         NSInteger integer = _tagController.tags.count - array.count;
         NSEnumerator *enumerator = array.objectEnumerator;
         NSMutableArray *indexPaths = [NSMutableArray array];
@@ -45,25 +42,32 @@
         }
         [self insert:indexPaths];
     }];
+    [_tagController loadTags];
+}
+
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 
 }
 
-- (void)insert:(NSArray *)array{
+- (void)insert:(NSArray *)array {
     [_weakSelf.collectionView insertItemsAtIndexPaths:array];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [_tagController loadTags];
+//    [_collectionView reloadData];
 }
 
 
 - (void)setUp {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
+    flowLayout.sectionInset = UIEdgeInsetsMake(3, 3, 3, 3);
     [flowLayout setItemSize:CGSizeMake(100, 125)];
-    [flowLayout setMinimumLineSpacing:5.0f];
-    [flowLayout setMinimumInteritemSpacing:5.0f];
+    [flowLayout setMinimumLineSpacing:7.0f];
+    [flowLayout setMinimumInteritemSpacing:3.0f];
     //[flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
 
     _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
@@ -79,37 +83,10 @@
 
 
 #pragma mark UICollection Delegate
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-    NSLog(@"%i:%@", indexPath.row, NSStringFromSelector(_cmd));
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%i:%@", indexPath.row, NSStringFromSelector(_cmd));
-    return YES;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%i:%@", indexPath.row, NSStringFromSelector(_cmd));
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%i:%@", indexPath.row, NSStringFromSelector(_cmd));
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%i:%@", indexPath.row, NSStringFromSelector(_cmd));
-    return YES;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%i:%@", indexPath.row, NSStringFromSelector(_cmd));
-    return YES;
-}
-
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%i:%@", indexPath.row, NSStringFromSelector(_cmd));
     Tag *tag = [_tagController.tags objectAtIndex:(NSUInteger) indexPath.row];
-    NSLog(@"%@",tag.tagName);
+    NSLog(@"%@", tag.tagName);
     _itemListViewController = [[ItemListViewController alloc] initWithTag:tag];
 
     [self.navigationController pushViewController:_itemListViewController animated:YES];
@@ -139,19 +116,18 @@
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
-
 //- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
 //    return nil;
 //}
 
 #pragma mark UIScroll delegate
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(CGPoint *)targetContentOffset {
-    if (targetContentOffset->y - scrollView.frame.size.height / scrollView.contentSize.height > 0.7) {
+    if ((targetContentOffset->y + scrollView.frame.size.height)/(scrollView.contentSize.height) == 1) {
+        self.navigationItem.title = _tagController.complete ? @"Koropo" : @"読み込み中";
         [_tagController moreLoadTags];
     }
 
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

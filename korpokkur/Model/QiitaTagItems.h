@@ -13,9 +13,12 @@ static NSString *const QIITA_TAG_ITEMS = @"https://qiita.com/api/v1/tags/%@/item
 
 @interface QiitaTagItems : TTURLRequestModel <TTURLRequestDelegate>
 @property(nonatomic, strong) NSMutableArray *items;
+@property(nonatomic) BOOL completeFlg;
+
 
 - (id)initWithTag:(Tag *)tag itemsResult:(void (^)(BOOL, NSArray *))anItemsResult;
 
 + (id)objectWithTag:(Tag *)tag itemsResult:(void (^)(BOOL, NSArray *))anItemsResult;
+
 
 @end

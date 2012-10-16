@@ -44,23 +44,31 @@
 
 
 - (void)loadTags {
-    [_tags load:TTURLRequestCachePolicyDefault more:NO];
+    [_tags load:TTURLRequestCachePolicyDisk more:NO];
 }
 
 - (void)moreLoadTags {
-    [_tags load:TTURLRequestCachePolicyDefault more:YES];
+    [_tags load:TTURLRequestCachePolicyDisk more:YES];
 }
 
 - (void)didFinishLoad:(BOOL)status results:(NSArray *)array {
     if (status) {
         tagController(array);
-    }else{
+    } else {
         // want Core Data から抜いてきた物を返す実装にしたいよね
     }
 }
 
 - (NSArray *)tags {
     return _tags.tags;
+}
+
+- (BOOL)complete {
+    return _tags.complete;
+}
+
+- (void)dealloc {
+    _tags = nil;
 }
 
 @end

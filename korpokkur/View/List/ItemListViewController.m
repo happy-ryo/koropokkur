@@ -10,6 +10,7 @@
 #import "TagItemsController.h"
 #import "Tag.h"
 #import "Item.h"
+#import "ItemViewController.h"
 
 @interface ItemListViewController ()
 
@@ -43,39 +44,40 @@
 }
 
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+}
 
-//- (id)initWithStyle:(UITableViewStyle)style
-//{
-//    self = [super initWithStyle:style];
-//    if (self) {
-//        // Custom initialization
-//    }
-//    return self;
-//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = _itemTag.tagName;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     _weakSelf = self;
     _tagItemsController = [[TagItemsController alloc] initWithTag:_itemTag
                                                tagItemsController:^(NSArray *array) {
-        NSInteger integer = _tagItemsController.items.count - array.count;
-        NSEnumerator *enumerator = array.objectEnumerator;
-        NSMutableArray *indexPaths = [NSMutableArray array];
-        Item *item = enumerator.nextObject;
-        while (item) {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:integer inSection:0];
-            [indexPaths addObject:indexPath];
-            ++integer;
-            item = enumerator.nextObject;
-        }
-//        [_weakSelf.collectionView insertItemsAtIndexPaths:indexPaths];
-//        [_weakSelf.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationBottom];
-        [self insert:indexPaths];
-    }];
+                                                   if (array == nil)self.navigationItem.title = _itemTag.tagName;
+                                                   NSInteger integer = _tagItemsController.items.count - array.count;
+                                                   NSEnumerator *enumerator = array.objectEnumerator;
+                                                   NSMutableArray *indexPaths = [NSMutableArray array];
+                                                   Item *item = enumerator.nextObject;
+                                                   while (item) {
+                                                       NSIndexPath *indexPath = [NSIndexPath indexPathForRow:integer inSection:0];
+                                                       [indexPaths addObject:indexPath];
+                                                       ++integer;
+                                                       item = enumerator.nextObject;
+                                                   }
+                                                   [self insert:indexPaths];
+                                               }];
 }
 
 - (void)insert:(NSArray *)array {
+    self.navigationItem.title = _itemTag.tagName;
+    [self.tableView insertRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationNone];
+}
+
+- (void)insertRow:(NSIndexPath *)indexPath {
+    NSArray *array = [NSArray arrayWithObjects:indexPath, nil];
     [self.tableView insertRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationBottom];
 }
 
@@ -85,7 +87,10 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [_tagItemsController loadItems];
+    if (_tagItemsController.items.count == 0 && _itemTag.itemCount != [NSNumber numberWithChar:0]) {
+        self.navigationItem.title = @"読み込み中";
+        [_tagItemsController loadItems];
+    }
 }
 
 
@@ -112,11 +117,33 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
                                                             forIndexPath:indexPath];
     Item *item = [_tagItemsController.items objectAtIndex:(NSUInteger) indexPath.row];
+//    NSString *iconURL =
+    cell.textLabel.numberOfLines = 2;
     cell.textLabel.text = item.itemTitle;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ ストック", item.stockCount];
     // Configure the cell...
 
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_tagItemsController.items.count - 1 == indexPath.row) {
+        if (_tagItemsController.items.count != [_itemTag.itemCount unsignedIntegerValue]) {
+            self.navigationItem.title = @"読み込み中";
+            [_tagItemsController moreLoadItems];
+        }
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 70.0f;
+    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+}
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -168,6 +195,15 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    ItemViewController *itemViewController = [[ItemViewController alloc] initWithNibName:@"ItemViewController" bundle:nil item:[_tagItemsController.items objectAtIndex:indexPath.row]];
+    [self.navigationController pushViewController:itemViewController animated:YES];
 }
+
+- (void)dealloc {
+    _itemTag = nil;
+    _tagItemsController = nil;
+    _weakSelf = nil;
+}
+
 
 @end

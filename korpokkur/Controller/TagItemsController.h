@@ -7,7 +7,9 @@
 
 #import <Foundation/Foundation.h>
 
+
 @class Tag;
+@class QiitaTagItems;
 
 
 @interface TagItemsController : NSObject
@@ -15,9 +17,11 @@
 
 - (void)loadItems;
 
-- (void)moreLoadTags;
+- (void)moreLoadItems;
 
 - (NSArray *)items;
+
+- (BOOL)complete;
 
 
 @end

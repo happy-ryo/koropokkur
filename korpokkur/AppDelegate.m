@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "TagCollectionViewController.h"
+#import "Item.h"
+#import "ItemViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,11 +19,17 @@
 @implementation AppDelegate {
     UITabBarController *_tabBarController;
     UINavigationController *_publicNavigation;
+
+    UINavigationController *_kyounon;
+
+    Item *_item;
 }
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize item = _item;
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -32,6 +40,7 @@
     _tabBarController = [[UITabBarController alloc] init];
     _publicNavigation = [[UINavigationController alloc] initWithRootViewController:collectionViewController];
     _publicNavigation.navigationBar.tintColor = RGBCOLOR(89, 192, 40);
+    _publicNavigation.title = @"いっぱい";
     [_tabBarController setViewControllers:[NSArray arrayWithObjects:_publicNavigation, nil] animated:YES];
 
     self.window.rootViewController = _tabBarController;
@@ -40,7 +49,7 @@
     [self.window makeKeyAndVisible];
 
     // スプラッシュの表示時間を意図的に確保する
-//    [NSThread sleepForTimeInterval:2.5f];
+    [NSThread sleepForTimeInterval:3.5f];
     return YES;
 }
 
