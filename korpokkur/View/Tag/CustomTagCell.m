@@ -9,7 +9,8 @@
 #import "CustomTagCell.h"
 #import "Tag.h"
 
-@implementation CustomTagCell
+@implementation CustomTagCell {
+}
 
 
 - (void)loadObject :(Tag *)tag {
@@ -24,17 +25,17 @@
     caLayer.borderColor = RGBCOLOR(220, 220, 220).CGColor;
     caLayer.borderWidth = 1.0f;
     caLayer.cornerRadius = 0.5f;
+    caLayer.rasterizationScale = [[UIScreen mainScreen] scale];
+    caLayer.shadowRadius = 3.0f;
+    caLayer.shadowOpacity = 0.2f;
+    caLayer.shadowOffset = CGSizeMake(0.0f, 1.0f);
+    caLayer.shouldRasterize = YES;
 
-    TTImageView *iconImg = [[TTImageView alloc] initWithFrame:CGRectMake(5, 5, 15, 15)];
-    iconImg.urlPath = tag.iconUrl;
-    iconImg.delegate = self;
-    [self.contentView addSubview:iconImg];
-
-    UILabel *tagName = [[UILabel alloc] initWithFrame:CGRectMake(23, 5, 65, 15)];
+    UILabel *tagName = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, 90, 20)];
     tagName.numberOfLines = 1;
     tagName.font = [UIFont boldSystemFontOfSize:13.0f];
     tagName.textColor = RGBCOLOR(121, 121, 121);
-    tagName.minimumFontSize = 11.0f;
+    tagName.minimumFontSize = 12.0f;
     tagName.text = tag.tagName;
     tagName.backgroundColor = [UIColor clearColor];
     [self.contentView addSubview:tagName];
@@ -54,10 +55,6 @@
     [self.contentView addSubview:followerLbl];
 
     self.contentView.backgroundColor = [UIColor whiteColor];
-}
-
-- (void)imageView:(TTImageView *)imageView didFailLoadWithError:(NSError *)error {
-    [imageView reload];
 }
 
 @end
